@@ -38,7 +38,7 @@ export default function ProductDetail() {
           ...p,
           originalPrice: p.original_price,
           reviewsCount: p.reviews_count,
-          category: p.category ? p.category.name : '',
+          category: p.category || null,
           specs: p.specs || {},
           specs_en: p.specs_en || null,
           skus: p.skus || []
@@ -244,7 +244,7 @@ export default function ProductDetail() {
           <div className="lg:col-span-6 text-left space-y-6">
             <div className="space-y-2">
               <span className="inline-block bg-indigo-50 text-indigo-600 text-xs font-bold px-3 py-1 rounded-full capitalize">
-                {product.category}
+                {localized(product.category, 'name')}
               </span>
               <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
                 {localized(product, 'name')}

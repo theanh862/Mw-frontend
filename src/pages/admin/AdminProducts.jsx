@@ -32,6 +32,11 @@ export default function AdminProducts() {
     ram: '',
     storage: '',
     battery: '',
+    screen_en: '',
+    cpu_en: '',
+    ram_en: '',
+    storage_en: '',
+    battery_en: '',
     skus: []
   })
 
@@ -153,6 +158,11 @@ export default function AdminProducts() {
       ram: newProduct.ram,
       storage: newProduct.storage,
       battery: newProduct.battery,
+      screen_en: newProduct.screen_en,
+      cpu_en: newProduct.cpu_en,
+      ram_en: newProduct.ram_en,
+      storage_en: newProduct.storage_en,
+      battery_en: newProduct.battery_en,
       skus: newProduct.skus.map(sku => ({
         id: sku.id || null,
         sku: sku.sku,
@@ -233,6 +243,11 @@ export default function AdminProducts() {
         ram: '',
         storage: '',
         battery: '',
+        screen_en: '',
+        cpu_en: '',
+        ram_en: '',
+        storage_en: '',
+        battery_en: '',
         skus: []
       })
     } catch (err) {
@@ -257,6 +272,11 @@ export default function AdminProducts() {
       ram: p.specs?.ram || '',
       storage: p.specs?.storage || '',
       battery: p.specs?.battery || '',
+      screen_en: p.specs_en?.screen || '',
+      cpu_en: p.specs_en?.cpu || '',
+      ram_en: p.specs_en?.ram || '',
+      storage_en: p.specs_en?.storage || '',
+      battery_en: p.specs_en?.battery || '',
       skus: p.skus || []
     })
     setIsAddOpen(true)
@@ -280,6 +300,11 @@ export default function AdminProducts() {
         ram: '',
         storage: '',
         battery: '',
+        screen_en: '',
+        cpu_en: '',
+        ram_en: '',
+        storage_en: '',
+        battery_en: '',
         skus: []
       })
     }
@@ -485,26 +510,56 @@ export default function AdminProducts() {
               <div className="space-y-4 pt-4 border-t border-slate-100">
                 <h4 className="font-bold text-slate-800 text-sm">{t('admin.products.specs_section')}</h4>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="screen">{t('admin.products.spec_screen')}</Label>
-                    <Input id="screen" name="screen" value={newProduct.screen} onChange={handleInputChange} placeholder="6.7 inch OLED 120Hz" />
+                <div className="space-y-3">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="screen">{t('admin.products.spec_screen')} 🇻🇳</Label>
+                      <Input id="screen" name="screen" value={newProduct.screen} onChange={handleInputChange} placeholder="6.7 inch OLED 120Hz" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="screen_en">{t('admin.products.spec_screen')} 🇬🇧</Label>
+                      <Input id="screen_en" name="screen_en" value={newProduct.screen_en} onChange={handleInputChange} placeholder="6.7-inch OLED 120Hz" />
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="cpu">{t('admin.products.spec_cpu')}</Label>
-                    <Input id="cpu" name="cpu" value={newProduct.cpu} onChange={handleInputChange} placeholder="Apple A18 Pro" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="cpu">{t('admin.products.spec_cpu')} 🇻🇳</Label>
+                      <Input id="cpu" name="cpu" value={newProduct.cpu} onChange={handleInputChange} placeholder="Apple A18 Pro" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="cpu_en">{t('admin.products.spec_cpu')} 🇬🇧</Label>
+                      <Input id="cpu_en" name="cpu_en" value={newProduct.cpu_en} onChange={handleInputChange} placeholder="Apple A18 Pro" />
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="ram">{t('admin.products.spec_ram')}</Label>
-                    <Input id="ram" name="ram" value={newProduct.ram} onChange={handleInputChange} placeholder="8 GB" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="ram">{t('admin.products.spec_ram')} 🇻🇳</Label>
+                      <Input id="ram" name="ram" value={newProduct.ram} onChange={handleInputChange} placeholder="8 GB" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="ram_en">{t('admin.products.spec_ram')} 🇬🇧</Label>
+                      <Input id="ram_en" name="ram_en" value={newProduct.ram_en} onChange={handleInputChange} placeholder="8 GB" />
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="storage">{t('admin.products.spec_storage')}</Label>
-                    <Input id="storage" name="storage" value={newProduct.storage} onChange={handleInputChange} placeholder="256 GB" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="storage">{t('admin.products.spec_storage')} 🇻🇳</Label>
+                      <Input id="storage" name="storage" value={newProduct.storage} onChange={handleInputChange} placeholder="256 GB" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="storage_en">{t('admin.products.spec_storage')} 🇬🇧</Label>
+                      <Input id="storage_en" name="storage_en" value={newProduct.storage_en} onChange={handleInputChange} placeholder="256 GB" />
+                    </div>
                   </div>
-                  <div className="col-span-1 md:col-span-2 space-y-2">
-                    <Label htmlFor="battery">{t('admin.products.spec_battery')}</Label>
-                    <Input id="battery" name="battery" value={newProduct.battery} onChange={handleInputChange} placeholder="4685 mAh, Sạc nhanh 30W" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="battery">{t('admin.products.spec_battery')} 🇻🇳</Label>
+                      <Input id="battery" name="battery" value={newProduct.battery} onChange={handleInputChange} placeholder="4685 mAh, Sạc nhanh 30W" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="battery_en">{t('admin.products.spec_battery')} 🇬🇧</Label>
+                      <Input id="battery_en" name="battery_en" value={newProduct.battery_en} onChange={handleInputChange} placeholder="4685 mAh, 30W fast charging" />
+                    </div>
                   </div>
                 </div>
               </div>
