@@ -6,8 +6,7 @@ import './index.css'
 import './i18n'
 import App from './App.jsx'
 
-// TODO: Replace with real Google Client ID from environment variables
-const GOOGLE_CLIENT_ID = "406756489866-oi6qjm9s19neldu0maca4l8h0raifcgu.apps.googleusercontent.com"
+const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
